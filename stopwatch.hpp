@@ -29,7 +29,7 @@ double StopWatch::elapsedTime() {
     high_resolution_clock::time_point end =
         high_resolution_clock::now();
     auto duration =  std::chrono::duration_cast<milliseconds>(end - start).count();
-    return static_cast<double>(duration);
+    return static_cast<double>(duration/1000.0);
 }
 
 #endif /* StopWatch_hpp */
