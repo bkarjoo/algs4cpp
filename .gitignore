@@ -3,3 +3,4 @@ data/
 *.gch
 *.out
 *.o
+*.exe
