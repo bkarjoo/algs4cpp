@@ -1,8 +1,8 @@
 #include <iostream>
-#include "StdRandom.hpp"
+#include "BinarySearch.hpp"
 #include <cassert>
-#include <algorithm>
 #include "In.hpp"
+#include "StdIn.hpp"
 
 using namespace std;
 
@@ -14,12 +14,11 @@ int main(int argc, char const *argv[]) {
   sort(whitelist.begin(), whitelist.end());
 
   for (auto i = whitelist.begin(); i < whitelist.end(); i++) cout << *i << endl;
-
-  cout << "CALLING shuffle..." << endl;
-  StdRandom::shuffle(&whitelist[0], whitelist.size());
-  cout << "Done with shuffle..." << endl;
-
-  for (auto i = whitelist.begin(); i < whitelist.end(); i++) cout << *i << endl;
+  while (!StdIn::isEmpty()) {
+    int key = StdIn::readInt();
+    int index = BinarySearch::indexOf(&whitelist[0], whitelist.size(), key);
+    cout << index << endl;
+  }
 
   return 0;
 }
