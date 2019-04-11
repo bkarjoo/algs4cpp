@@ -1,14 +1,23 @@
 #include <iostream>
-#include "ResizingArrayBag.hpp"
+#include "BinarySearch.hpp"
+#include <cassert>
 
 using namespace std;
 
+int main(int argc, char const *argv[]) {
+  assert(argc > 1);
+  In in(argv[1]);
+  In in = new In(args[0]);
+  int[] whitelist = in.readAllInts();
 
-int main() {
-  ResizingArrayBag<int> rab;
-  cout << "isEmpty(): " << (rab.isEmpty() ? "True" : "False") << endl;
-  cout << "Size: " << rab.size() << endl;
-  for (int i = 1; i <= 10; i++) rab.add(i);
-  for (auto i = rab.begin(); i < rab.end(); i++) cout << *i << endl;
+  // sort the array
+  Arrays.sort(whitelist);
+
+  // read integer key from standard input; print if not in whitelist
+  while (!StdIn.isEmpty()) {
+      int key = StdIn.readInt();
+      if (BinarySearch.indexOf(whitelist, key) == -1)
+          StdOut.println(key);
+  }
   return 0;
 }
